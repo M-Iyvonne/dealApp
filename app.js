@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+=======
+// var settings = {
+//   "async": true,
+//   "crossDomain": true,
+//   "url": "https://api.sqoot.com/v2/deals?api_key=DkDVEWgCHeXE-swLy6SD",
+//   "method": "GET",
+
+// }
+
+// $.ajax(settings).done(function (response) {
+//   console.log(response);
+// });
+
+
+
+>>>>>>> f3b004539513138dd6c6ee278d79029189fb8332
 $(document).ready(function () {
 
   $(".js-search-form").submit(function () {

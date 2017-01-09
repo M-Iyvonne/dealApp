@@ -1,20 +1,4 @@
-<<<<<<< HEAD
-=======
-// var settings = {
-//   "async": true,
-//   "crossDomain": true,
-//   "url": "https://api.sqoot.com/v2/deals?api_key=DkDVEWgCHeXE-swLy6SD",
-//   "method": "GET",
 
-// }
-
-// $.ajax(settings).done(function (response) {
-//   console.log(response);
-// });
-
-
-
->>>>>>> f3b004539513138dd6c6ee278d79029189fb8332
 $(document).ready(function () {
 
   $(".js-search-form").submit(function () {
@@ -28,21 +12,34 @@ $(document).ready(function () {
       url: sqootUrl,
       dataType: "jsonp",
       success: function (response) {
-        console.log(keyword, location, radius);
-        console.log("this is our response", response);
+        console.log(response);
         $('.js-results').html('');
         if (response.deals.length) {
-
-
           $.each(response.deals, function (i, data) {
+            if(data.deal.merchant.locality){
+              var title = data.deal.title;
+              var name = data.deal.merchant.name.toLowerCase().replace(".","").replace(/ /g,"-");
+              var locality = data.deal.merchant.locality.toLowerCase().replace(".","").replace(/ /g,"-");
+              var yelpsearch = name + "-" + locality;
+              console.log(yelpsearch);
+              var desc = data.deal.description;
+              var url = data.deal.url;
+              var img = data.deal.image_url;
 
-            // data.deals
-            var title = data.deal.title;
-            var desc = data.deal.description;
-            var url = data.deal.url;
-            var final = "<div class='deals'><div class='title'><a href='" + url + "'>" + title + "</a></div><div class='description'>" + desc + "</div><div class='url'>" + url + "</div></div>";
+              $.ajax({
+                type: "GET",
+                url: "https://quiet-springs-39660.herokuapp.com/api/business/"+yelpsearch,
+                dataType: "json",
+                success: function(yelpResponse){
+                  console.log(yelpResponse);
+                }
+              });
 
-            $('.js-results').append(final);
+              var final = "<div class='image'><img src='" + img + "'></div>"+"<div class='deals'><div class='title'><a href='" + url + "'>" + title + "</a></div><div class='description'>" + desc+ '</div>';
+
+              $('.js-results').append(final);
+            }
+            
 
           });
         } else {

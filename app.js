@@ -23,6 +23,9 @@ $(document).ready(function () {
             if (data.deal.description === null) {
               data.deal.description = "No Description Found";
             }
+            if (data.deal.merchant.locality ===null)
+              data.deal.merchant.locality = "No Location Found";
+          
               console.log(yelpsearch);
 
               $.ajax({
@@ -75,7 +78,7 @@ $(document).ready(function () {
                    $('.js-results').append(final);
                 }
               }
-              
+
               });
           });
         } else {

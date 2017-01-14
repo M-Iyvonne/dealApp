@@ -32,17 +32,15 @@ $(document).ready(function () {
                   } else {
                   
                   console.log(yelpResponse);
-                    var final = "<div class='row'><h3 class='col-md-2 box'>Company Website:</h3><h3 class='col-md-2 website'><a href='"+
+                    var final = "<div class='deal'><div class='row'><h3 class='col-md-2 box'>Company Website:</h3><h3 class='col-md-2 website'><a href='"+
                    data.deal.merchant.url+ 
                    "'>"+ 
                    data.deal.merchant.name+
-                   "</a></h3></h3>"+
-                   "<h3 class='col-md-2 box'>Company Location:</h3><h3 class='col-md-2 website'>"+
+                   "</a></h3><h3 class='col-md-2 box'>Company Location:</h3><h3 class='col-md-2 website'>"+
                    data.deal.merchant.locality+ 
-                   "</h3></h3></div>"+
-                   "<h3 class='col-md-2 box'>Company Rating:</h3><h3 class='col-md-2 website'><img src='"+
+                   "</h3><h3 class='col-md-2 box'>Company Rating:</h3><h3 class='col-md-2 website'><img src='"+
                    yelpResponse.rating_img_url_large+ 
-                   "'></h3></h3></div>"+
+                   "'></h3></div>"+
                    "<div class='image'><img src='"+
                    data.deal.image_url+ "'></div><div class='deals'><div class='title'><a href='"+
                    data.deal.url+
@@ -50,7 +48,7 @@ $(document).ready(function () {
                    data.deal.title+
                    "</a></div><div class='description'>"+
                    data.deal.description+
-                   '</div></div><div class="rating">';
+                   '</div></div>';
                  
      
                    $('.js-results').append(final);

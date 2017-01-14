@@ -19,6 +19,10 @@ $(document).ready(function () {
               var name = data.deal.merchant.name.toLowerCase().replace(".","").replace(/ /g,"-");
               var locality = data.deal.merchant.locality.toLowerCase().replace(".","").replace(/ /g,"-");
               var yelpsearch = name + "-" + locality;
+            }
+            if (data.deal.description === null) {
+              data.deal.description = "No Description Found";
+            }
               console.log(yelpsearch);
 
               $.ajax({
@@ -73,9 +77,6 @@ $(document).ready(function () {
               }
               
               });
-
-
-            }
           });
         } else {
           $('.js-results').html("<div id='no'>No Results</div>");

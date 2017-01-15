@@ -87,7 +87,8 @@ h3 {
 	margin-bottom: 1em;
 	margin-top: 1em;
 }
-.description {
+.description,
+.address {
 	background-color: lightgrey;
 	padding: 3%;
 }

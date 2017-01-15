@@ -19,6 +19,10 @@ $(document).ready(function () {
               var name = data.deal.merchant.name.toLowerCase().replace(".","").replace(/ /g,"-");
               var locality = data.deal.merchant.locality.toLowerCase().replace(".","").replace(/ /g,"-");
               var yelpsearch = name + "-" + locality;
+              var googleAddress = data.deal.merchant.address+" "+data.deal.merchant.locality+" "+data.deal.merchant.postal_code;
+              var googleLink ="http://maps.google.com/maps?daddr='"+googleAddress+"'";
+              console.log(googleAddress);
+              console.log(googleLink);
             }
             if (data.deal.description === null) {
               data.deal.description = "No Description Found";
@@ -35,7 +39,7 @@ $(document).ready(function () {
                 success: function(yelpResponse) { 
                   if(yelpResponse.statusCode === 400) { 
                   yelpResponse.rating_img_url_large = "https://s3-media4.fl.yelpcdn.com/assets/2/www/img/04ae5eda5622/ico/stars/v1/stars_0.png";
-                   var final = "<div class='deal'><div class='row'><h3 class='col-md-2 box'>Company Website:</h3><h3 class='col-md-2 website'><a href='"+
+                   var final = "<div class='deal'><div class='row'><h3 class='col-md-2 box'>Company Website:</h3><h3 class='col-md-2 website'><a target='_blank' href='"+
                    data.deal.merchant.url+ 
                    "'>"+ 
                    data.deal.merchant.name+
@@ -45,22 +49,20 @@ $(document).ready(function () {
                    yelpResponse.rating_img_url_large+ 
                    "'></h3></div>"+
                    "<div class='image'><img src='"+
-                   data.deal.image_url+ "'></div><div class='deals'><div class='title'><a href='"+
+                   data.deal.image_url+ "'></div><div class='deals'><div class='title'><a target='_blank' href="+
                    data.deal.url+
                    "'>"+ 
                    data.deal.title+
                    "</a></div><div class='description'>"+
                    data.deal.description+
-                   '</div></div><div class="address">'+
-                   data.deal.merchant.address+" "+
-                   data.deal.merchant.locality+" "+
-                   data.deal.merchant.postal_code+
+                   "</div></div><div class='address'>"+'<a target="_blank" href="'+
+                   googleLink+'">Get Directions</a>'+
                    '</div>';
                    $('.js-results').append(final);
                   } else {
                   
                   console.log(yelpResponse);
-                    var final = "<div class='deal'><div class='row'><h3 class='col-md-2 box'>Company Website:</h3><h3 class='col-md-2 website'><a href='"+
+                    var final = "<div class='deal'><div class='row'><h3 class='col-md-2 box'>Company Website:</h3><h3 class='col-md-2 website'><a target='_blank' href='"+
                    data.deal.merchant.url+ 
                    "'>"+ 
                    data.deal.merchant.name+
@@ -70,13 +72,15 @@ $(document).ready(function () {
                    yelpResponse.rating_img_url_large+ 
                    "'></h3></div>"+
                    "<div class='image'><img src='"+
-                   data.deal.image_url+ "'></div><div class='deals'><div class='title'><a href='"+
+                   data.deal.image_url+ "'></div><div class='deals'><div class='title'><a target='_blank' href='"+
                    data.deal.url+
                    "'>"+ 
                    data.deal.title+
                    "</a></div><div class='description'>"+
                    data.deal.description+
-                   '</div></div>';
+                   "</div></div><div class='address'>"+'<a target="_blank" href="'+
+                   googleLink+'">Get Directions</a>'+
+                   '</div>';
                  
      
                    $('.js-results').append(final);

@@ -1,11 +1,12 @@
 * {
 	box-sizing: border-box;
 }
-body {
+.main {
 	width:75%;
 	margin:auto;
 	border-radius: 10px;
-	border: 25px solid darkblue;
+	background-color: rgba(252, 252, 233, .5);
+	border: 25px solid rgba(144, 41, 72, 1);
 }
 .js-search-form {
 	border: 2px solid white;
@@ -15,9 +16,13 @@ body {
 	margin: auto;
 	margin-top: 35px;
 	margin-bottom: 15px;
-	color: white;
-	background-color: darkblue;
+	color: rgb(252, 252, 233);
+	background-color: rgba(144, 12, 63, 1);
 	font-family: 'Indie Flower', cursive;
+ 
+}
+input {
+	width: 75%;
 
 }
 .js-keyword,
@@ -92,4 +97,10 @@ h3 {
 #no {
 	margin: 15px 0px 0px 110px; 
 	font-size: 30px;
+}
+
+@media only screen and (max-width: 680px) {
+    .col-md-2{
+    	width: 100%;
+    	 }
 }

@@ -51,7 +51,11 @@ $(document).ready(function () {
                    data.deal.title+
                    "</a></div><div class='description'>"+
                    data.deal.description+
-                   '</div></div>';
+                   '</div></div><div class="address">'+
+                   data.deal.merchant.address+" "+
+                   data.deal.merchant.locality+" "+
+                   data.deal.merchant.postal_code+
+                   '</div>';
                    $('.js-results').append(final);
                   } else {
                   

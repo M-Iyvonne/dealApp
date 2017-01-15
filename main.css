@@ -101,6 +101,11 @@ h3 {
 }
 
 @media only screen and (max-width: 680px) {
+	.main {
+	width:100%;
+	border-radius: 2px;
+	background-color: rgba(252, 252, 233, .5);
+	border: 5px solid rgba(144, 41, 72, 1);
     .col-md-2{
     	width: 100%;
     	 }
